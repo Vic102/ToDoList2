@@ -58,8 +58,6 @@ form {
   font-size: 20px;
 }
 
-
-
 button {
   background-color: lightblue;
   margin-left: 20px;
@@ -67,10 +65,16 @@ button {
   cursor: pointer;
 }
 
-
 .task-in-list {
   display: flex;
   justify-content: space-between;
+}
+
+.warning-msg {
+  height: 50px;
+  align-items: center;
+  justify-content: center;
+  color: white;
 }
 
 .task-counter {

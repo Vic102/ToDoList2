@@ -83,15 +83,24 @@ function updateCounter(indexNum) {
   }
 }
 
-
-function setFormMessage(message) {
+function isMessageEmpty(message) {
+  let isEmpty = true;
   const warningMsg = document.querySelector('.warning-msg');
- 	warningMsg.innerHTML = 'Introduce un valor';
+ 	warningMsg.innerHTML = 'No puedes crear una tarea de nada, pon algo.';
   if (message == "") {
-  	warningMsg.style.display = 'block';
-    return;
+  	warningMsg.style.display = 'flex';
+    warningMsg.style.backgroundColor = 'blue';
+    isEmpty = false;
   } else {
   	warningMsg.style.display = 'none';
+  }
+  return isEmpty;
+}
+
+function setFormMessage(message) {
+  isMessageEmpty(message);
+  if (!isMessageEmpty(message)) {
+    return;
   }
   let fecha = new Date();
   const button = '<button id="1" onclick="changeStatus(event)">To Do</button>';
