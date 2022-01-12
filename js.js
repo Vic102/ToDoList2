@@ -54,6 +54,10 @@ function eraseTask(event) {
 
 function changeId(event) {
   const element = event.target;
+  const states2 = {
+    10000: { value: 'X'},
+    10001: { value: 'X'}
+  };
   let nextState2 = parseInt(element.id) + 1;
   element.id = nextState2;
   eraseTask(event);
