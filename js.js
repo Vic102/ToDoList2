@@ -20,7 +20,6 @@ function styleDiv(newDivElem, numIndex) {
 
 function changeStatus(event){
   const content = event.target;
-
   const states = {
     1: { value: 'To Do', color: 'lightblue'},
     2: { value: 'In Progress', color: 'yellow'},
@@ -28,7 +27,6 @@ function changeStatus(event){
   };
 
   let nextState = parseInt(content.id) + 1;
-
   if (nextState > 3) {
     return;
   }
@@ -42,6 +40,7 @@ function changeStatus(event){
 function eraseTask(event) {
   const btnToErase = document.querySelectorAll('.close-task');
   const hola = event.target.parentElement;
+
   for (var i = 0; i < btnToErase.length; i++) {
     if (btnToErase[i].id == 10001) {
       event.target.parentElement.remove();
@@ -58,6 +57,7 @@ function changeId(event) {
     10000: { value: 'X'},
     10001: { value: 'X'}
   };
+
   let nextState2 = parseInt(element.id) + 1;
   element.id = nextState2;
   eraseTask(event);
@@ -76,6 +76,7 @@ function setDate(fecha) {
 function updateCounter(indexNum) {
   const counter = document.querySelector('.task-counter');
   counter.innerHTML = 'Tienes un total de ' + indexNum + ' tareas que hacer';
+
   if (indexNum == 0) {
     counter.style.display = 'none';
   } else {
@@ -86,14 +87,16 @@ function updateCounter(indexNum) {
 function isMessageEmpty(message) {
   let isEmpty = true;
   const warningMsg = document.querySelector('.warning-msg');
- 	warningMsg.innerHTML = 'No puedes crear una tarea de nada, pon algo.';
+  warningMsg.innerHTML = 'No puedes crear una tarea de nada, pon algo.';
+
   if (message == "") {
-  	warningMsg.style.display = 'flex';
+    warningMsg.style.display = 'flex';
     warningMsg.style.backgroundColor = 'blue';
     isEmpty = false;
   } else {
-  	warningMsg.style.display = 'none';
+    warningMsg.style.display = 'none';
   }
+
   return isEmpty;
 }
 
@@ -102,6 +105,7 @@ function setFormMessage(message) {
   if (!isMessageEmpty(message)) {
     return;
   }
+
   let fecha = new Date();
   const button = '<button id="1" onclick="changeStatus(event)">To Do</button>';
   const closeButton = '<button id="10000" class="close-task" onclick="changeId(event)">&times;</button>';
