@@ -68,7 +68,7 @@ function setDate(fecha) {
   let month = fecha.getMonth() + 1;
   let day = fecha.getDate();
   let hour = fecha.getHours();
-  let minutes = fecha.getMinutes();
+  let minutes = (fecha.getMinutes() < 10 ? '0' : '') + fecha.getMinutes();
   let fullDate = day + "/" + month + "/" + year + " " + hour + ":" + minutes + "h";
   return fullDate;
 }
@@ -77,31 +77,36 @@ function updateCounter(indexNum) {
   const counter = document.querySelector('.task-counter');
   counter.innerHTML = 'Tienes un total de ' + indexNum + ' tareas que hacer';
   if (indexNum == 0) {
-  counter.style.display = 'none';
+    counter.style.display = 'none';
   } else {
-  counter.style.display = 'block';
+    counter.style.display = 'block';
   }
 }
 
 
 function setFormMessage(message) {
-    if (message == "") {
-      return;
-    }
-    let fecha = new Date();
-    const button = '<button id="1" onclick="changeStatus(event)">To Do</button>';
-    const closeButton = '<button id="10000" class="close-task" onclick="changeId(event)">&times;</button>';
+  const warningMsg = document.querySelector('.warning-msg');
+ 	warningMsg.innerHTML = 'Introduce un valor';
+  if (message == "") {
+  	warningMsg.style.display = 'block';
+    return;
+  } else {
+  	warningMsg.style.display = 'none';
+  }
+  let fecha = new Date();
+  const button = '<button id="1" onclick="changeStatus(event)">To Do</button>';
+  const closeButton = '<button id="10000" class="close-task" onclick="changeId(event)">&times;</button>';
 
-    let elementDiv = document.createElement('div');
-    elementDiv.id = idCount;
-    elementDiv.className = 'task-in-list';
-    styleDiv(elementDiv, indexArr);
-    arr[indexArr] = elementDiv;
-    arr[indexArr].innerHTML = '<div class="for-flex">' +setDate(fecha) + " " + button + " " + message + '</div>' + closeButton;
-    div.append(arr[indexArr]);
-    indexArr++;
-    idCount++;
-    updateCounter(indexArr);
+  let elementDiv = document.createElement('div');
+  elementDiv.id = idCount;
+  elementDiv.className = 'task-in-list';
+  styleDiv(elementDiv, indexArr);
+  arr[indexArr] = elementDiv;
+  arr[indexArr].innerHTML = '<div class="for-flex">' +setDate(fecha) + " " + button + " " + message + '</div>' + closeButton;
+  div.append(arr[indexArr]);
+  indexArr++;
+  idCount++;
+  updateCounter(indexArr);
 }
 
 
