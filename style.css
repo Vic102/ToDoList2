@@ -1,0 +1,92 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  width: 50%;
+  margin-left: 25%;
+  margin-right: 25%;
+
+}
+
+.fixed {
+  background-color: #f34435;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.title {
+  text-align: center;
+  margin: 0;
+  margin-bottom: 5px;
+  color: white;
+}
+
+
+form {
+  display: flex;
+}
+
+.common-style{
+  border-radius: 0;
+  border: 1px solid #d2d2d4;
+  border-collapse: collapse;
+  padding: 13px;
+  font-size: 20px;
+}
+
+
+#button-submit {
+  background-color: #d9d9d9;
+  width: 170px;
+  color: #555555;
+}
+#text-input {
+  width: 600px;
+}
+
+
+#text-input::placeholder {
+  color: #848484;
+  font-size: 20px;
+}
+
+.input-box {
+  margin-bottom: 12px;
+}
+
+.list {
+  margin-left: 15px;
+  font-size: 20px;
+}
+
+
+
+button {
+  background-color: lightblue;
+  margin-left: 20px;
+  margin-right: 20px;
+  cursor: pointer;
+}
+
+
+.task-in-list {
+  display: flex;
+  justify-content: space-between;
+}
+
+.task-counter {
+  text-align: right;
+}
+
+.close-task {
+  font-size: 20px;
+  background-color: inherit;
+  border: none;
+  font-weight: bolder;
+
+}
+
+.close-task:hover {
+  color: red;
+  background-color: black;
+}
