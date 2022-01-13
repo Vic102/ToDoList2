@@ -1,6 +1,5 @@
 let arr = new Array();
 let indexArr = 0;
-let idCount = 10;
 
 function stopExecution(e) {
   e.preventDefault();
@@ -39,10 +38,9 @@ function changeStatus(event){
 
 function eraseTask(event) {
   const btnToErase = document.querySelectorAll('.close-task');
-  const hola = event.target.parentElement;
 
   for (var i = 0; i < btnToErase.length; i++) {
-    if (btnToErase[i].id == 10001) {
+    if (btnToErase[i].id == 11) {
       event.target.parentElement.remove();
       arr.splice(i, 1);
     }
@@ -54,8 +52,8 @@ function eraseTask(event) {
 function changeId(event) {
   const element = event.target;
   const states2 = {
-    10000: { value: 'X'},
-    10001: { value: 'X'}
+    10: { value: 'X'},
+    11: { value: 'X'}
   };
 
   let nextState2 = parseInt(element.id) + 1;
@@ -108,17 +106,15 @@ function setFormMessage(message) {
 
   let fecha = new Date();
   const button = '<button id="1" onclick="changeStatus(event)">To Do</button>';
-  const closeButton = '<button id="10000" class="close-task" onclick="changeId(event)">&times;</button>';
+  const closeButton = '<button id="10" class="close-task" onclick="changeId(event)">&times;</button>';
 
   let elementDiv = document.createElement('div');
-  elementDiv.id = idCount;
   elementDiv.className = 'task-in-list';
   styleDiv(elementDiv, indexArr);
   arr[indexArr] = elementDiv;
-  arr[indexArr].innerHTML = '<div class="for-flex">' +setDate(fecha) + " " + button + " " + message + '</div>' + closeButton;
-  div.append(arr[indexArr]);
+  arr[indexArr].innerHTML = '<div>' +setDate(fecha) + " " + button + " " + message + '</div>' + closeButton;
+  document.querySelector('#lista').append(arr[indexArr]);
   indexArr++;
-  idCount++;
   updateCounter(indexArr);
 }
 
